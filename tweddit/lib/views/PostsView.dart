@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tweddit/views/widgets/TweetsCard.dart';
+import 'package:tweddit/views/widgets/PostsCards.dart';
 
 class HomePage extends StatefulWidget {
   @override
