@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:tweddit/views/widgets/TweetsCard.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   HomePageState createState() => HomePageState();
 }
+
+
 
 class HomePageState extends State<HomePage> {
   @override
@@ -17,7 +21,7 @@ class HomePageState extends State<HomePage> {
         ),
       ),
       body: TweetsCard(
-        text: 'This is the content of the tweet',
+        text: 'Content Section',
         author_id: 'ZacMel',
         created_at: '1/31/23',
         thumbnailUrl:
@@ -26,3 +30,5 @@ class HomePageState extends State<HomePage> {
     );
   }
 }
+
+
