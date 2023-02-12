@@ -14,16 +14,16 @@ class TweetsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
       height: 180,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Color.fromARGB(255, 242, 247, 246),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.6),
-            offset: Offset(
+            offset: const Offset(
               0.0,
               10.0,
             ),
@@ -33,11 +33,11 @@ class TweetsCard extends StatelessWidget {
         ],
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.35),
+            Color.fromARGB(255, 0, 0, 0).withOpacity(0.35),
             BlendMode.multiply,
           ),
           image: NetworkImage(thumbnailUrl),
-          fit: BoxFit.cover,
+          fit: BoxFit.none,
         ),
       ),
       child: Stack(
@@ -72,7 +72,7 @@ class TweetsCard extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.star,
-                        color: Colors.yellow,
+                        color: Colors.red,
                         size: 18,
                       ),
                       SizedBox(width: 7),
@@ -91,7 +91,7 @@ class TweetsCard extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.schedule,
-                        color: Colors.yellow,
+                        color: Colors.red,
                         size: 18,
                       ),
                       SizedBox(width: 7),
