@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               image:
-                                  AssetImage('Assets/dark Rumblr update.png'))),
+                                  AssetImage('Assets/darkRumblrUpdate.png'))),
                     ),
                     Column(
                       children: <Widget>[
