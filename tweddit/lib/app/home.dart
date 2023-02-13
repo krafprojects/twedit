@@ -18,7 +18,7 @@ class HomePageState extends State<HomePage> {
           children: [Icon(Icons.train), SizedBox(width: 10), Text('Twedit')],
         ),
       ),
-      body: TweetsCard(
+      body: PostsCards(
         text: 'Content Section',
         author_id: 'ZacMel',
         created_at: '1/31/23',

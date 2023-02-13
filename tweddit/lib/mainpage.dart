@@ -40,9 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: TweetsCard(
+      body: PostsCards(
         text: 'Content Section',
-        author_id: 'ZacMel',
+        author_id: 'ZacMell',
         created_at: '1/31/23',
         thumbnailUrl:
             'https://miro.medium.com/max/1200/1*njhuKpqziXtVFjykPV3yoQ.jpeg',

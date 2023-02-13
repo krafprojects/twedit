@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TweetsCard extends StatelessWidget {
+class PostsCards extends StatelessWidget {
   final String text;
   final String author_id;
   final String created_at;
   final String thumbnailUrl;
-  TweetsCard({
+  PostsCards({
     required this.text,
     required this.created_at,
     required this.author_id,
