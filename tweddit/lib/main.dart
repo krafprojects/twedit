@@ -1,12 +1,46 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:tweddit/signup.dart';
 import 'login.dart';
+import 'package:http/http.dart' as http;
 
-void main() {
+void main() async {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(),
   ));
+
+//API
+  const subreddit = "flutterdev";
+  final url = Uri.parse("https://www.reddit.com/r/$subreddit/top.json");
+  final response = await http.get(url, headers: {'User-Agent': 'TestRumblr'});
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+    final posts = data['data']['children'];
+    for (var post in posts) {
+      final title = post['data']['title'];
+      print(title); //
+    }
+  } else {
+    print('Error');
+  }
+
+  final String baseUrl = 'https://oauth.reddit.com/r/FlutterDev/new';
+  final Map<String, String> headers = {
+    'User-Agent': 'TestRumblr',
+    'Authorization': 'bearer mnhdHwfIf8hBTTJjXiyZtA'
+  };
+
+  final data = json.decode(response.body);
+
+  List<dynamic> posts = data['data']['children'];
+
+  for (var post in posts) {
+    String title = post['data']['title'];
+    print(data);
+  }
+//API
 }
 
 class HomePage extends StatelessWidget {
@@ -16,15 +50,6 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.red,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
