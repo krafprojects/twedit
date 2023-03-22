@@ -27,7 +27,7 @@ class SignupPage extends StatelessWidget {
         body: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('Assets/darkRumblrUpdate.png'),
+                    image: AssetImage('assets/images/darkRumblrUpdate.png'),
                     fit: BoxFit.none)),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,

@@ -13,9 +13,6 @@ class PostsCards extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    const defaultThumb =
-        "https://repo-archive-cdn.dynastic.co/dab84abcadf6eb77a1a86347d81c30a1.png";
-
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -41,7 +38,7 @@ class PostsCards extends StatelessWidget {
           ),
           image: thumbnailUrl.contains("http")
               ? NetworkImage(thumbnailUrl)
-              : NetworkImage(defaultThumb),
+              : AssetImage('assets/images/background.jpg') as ImageProvider,
           fit: BoxFit.cover,
         ),
       ),

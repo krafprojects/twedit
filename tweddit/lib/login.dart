@@ -28,6 +28,10 @@ class Login extends StatelessWidget {
         body: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
+                    colorFilter: ColorFilter.mode(
+                      Color.fromRGBO(0, 0, 0, 0.45),
+                      BlendMode.multiply,
+                    ),
                     image: AssetImage('assets/images/examplebackground.jpg'),
                     fit: BoxFit.cover)),
             height: MediaQuery.of(context).size.height,
@@ -42,18 +46,15 @@ class Login extends StatelessWidget {
                       Column(
                         children: const <Widget>[
                           Text(
-                            "Login",
+                            "Login to Rumblr",
                             style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(
                             height: 20,
-                          ),
-                          Text(
-                            "Login to your account",
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ],
                       ),
@@ -72,10 +73,13 @@ class Login extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            child: MaterialButton(
-                                key: const Key('loginBtn'),
-                                minWidth: 80,
-                                height: 80,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 40,
+                                      vertical: 15,
+                                    ),
+                                    textStyle: TextStyle(fontSize: 18)),
                                 onPressed: () {
                                   Navigator.push(context, MainPage());
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -85,24 +89,19 @@ class Login extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                color: Colors.red,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: const Text("Login",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18)))),
+                                child: Text("Login"))),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const <Widget>[
-                          Text("Don't have an account?"),
+                          Text("Don't have an account?",
+                              style: TextStyle(color: Colors.white)),
                           Text(
                             "Sign up",
                             style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18),
                             // Sign up funtion in the login page does not work and will need to be worked on.
                           )
                         ],
@@ -119,10 +118,10 @@ class Login extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(label,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Color.fromARGB(221, 247, 6, 6),
+              fontWeight: FontWeight.bold,
+              color: Colors.grey[100],
             )),
         const SizedBox(
           height: 5,
@@ -131,8 +130,12 @@ class Login extends StatelessWidget {
           obscureText: obscureText,
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.grey,
+                width: 2.5,
+              ),
+            ),
             border:
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
           ),

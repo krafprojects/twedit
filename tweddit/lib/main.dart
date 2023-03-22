@@ -46,6 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
+                        colorFilter: ColorFilter.mode(
+                          Color.fromRGBO(0, 0, 0, 0.45),
+                          BlendMode.multiply,
+                        ),
                         image:
                             AssetImage('assets/images/examplebackground.jpg'),
                         fit: BoxFit.cover)),
@@ -66,10 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     Column(
                       children: <Widget>[
-                        MaterialButton(
-                            key: const Key('loginBtn'),
-                            minWidth: 80,
-                            height: 80,
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                fixedSize: Size(200, 60),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 40,
+                                  vertical: 15,
+                                ),
+                                textStyle: TextStyle(fontSize: 18)),
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -82,27 +90,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               );
                             },
-                            color: Colors.red,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child: const Text("Login",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18))),
+                            child: Text("Login")),
                         const SizedBox(
-                          height: 40,
+                          height: 20,
                         ),
                         Container(
                             padding: const EdgeInsets.only(top: 3, left: 3),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            child: MaterialButton(
-                                key: const Key('signupBtn'),
-                                minWidth: 80,
-                                height: 80,
+                            child: OutlinedButton(
+                                style: ElevatedButton.styleFrom(
+                                    fixedSize: Size(200, 60),
+                                    side: BorderSide(color: Colors.white),
+                                    foregroundColor: Colors.white,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 40,
+                                      vertical: 15,
+                                    ),
+                                    textStyle: TextStyle(fontSize: 18)),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -116,15 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   );
                                 },
-                                color: Colors.red,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                child: const Text("Sign up",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18))))
+                                child: Text("Signup")))
                       ],
                     )
                   ],
