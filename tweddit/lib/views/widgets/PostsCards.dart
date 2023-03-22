@@ -13,6 +13,9 @@ class PostsCards extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    const defaultThumb =
+        "https://repo-archive-cdn.dynastic.co/dab84abcadf6eb77a1a86347d81c30a1.png";
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
@@ -33,11 +36,13 @@ class PostsCards extends StatelessWidget {
         ],
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Color.fromARGB(255, 0, 0, 0).withOpacity(0.35),
+            Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
             BlendMode.multiply,
           ),
-          image: NetworkImage(thumbnailUrl),
-          fit: BoxFit.none,
+          image: thumbnailUrl.contains("http")
+              ? NetworkImage(thumbnailUrl)
+              : NetworkImage(defaultThumb),
+          fit: BoxFit.cover,
         ),
       ),
       child: Stack(
@@ -48,6 +53,7 @@ class PostsCards extends StatelessWidget {
               child: Text(
                 text,
                 style: TextStyle(
+                  color: Colors.white,
                   fontSize: 19,
                 ),
                 overflow: TextOverflow.ellipsis,

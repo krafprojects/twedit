@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tweddit/test.dart';
 
-import 'mainpage.dart';
+import 'home.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -29,7 +28,7 @@ class Login extends StatelessWidget {
         body: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('Assets/examplebackground.jpg'),
+                    image: AssetImage('assets/images/examplebackground.jpg'),
                     fit: BoxFit.cover)),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,

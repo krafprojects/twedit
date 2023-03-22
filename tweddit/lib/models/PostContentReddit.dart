@@ -21,6 +21,12 @@ class PostReddit {
   final String thumbnail;
   final int score;
 
+  // String get title => _title;
+  // String get _subreddit => _subreddit;
+  // String get _author => _author;
+  // String get _thumbnail => _thumbnail;
+  // String get _score => _score;
+
   PostReddit(
       {required this.title,
       required this.subreddit,

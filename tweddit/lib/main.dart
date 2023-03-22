@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tweddit/app_state.dart';
 import 'package:tweddit/signup.dart';
 import 'login.dart';
 import 'package:http/http.dart' as http;
@@ -10,49 +12,21 @@ void main() async {
     debugShowCheckedModeBanner: false,
     home: HomePage(),
   ));
-
-//API
-  const subreddit = "flutterdev";
-  final url = Uri.parse("https://www.reddit.com/r/$subreddit/top.json");
-  final response = await http.get(url, headers: {'User-Agent': 'TestRumblr'});
-  if (response.statusCode == 200) {
-    final data = jsonDecode(response.body);
-    final posts = data['data']['children'];
-    for (var post in posts) {
-      final title = post['data']['title'];
-      print(title); //
-    }
-  } else {
-    print('Error');
-  }
-
-  final String baseUrl = 'https://oauth.reddit.com/r/FlutterDev/new';
-  final Map<String, String> headers = {
-    'User-Agent': 'TestRumblr',
-    'Authorization': 'bearer mnhdHwfIf8hBTTJjXiyZtA'
-  };
-
-  final data = json.decode(response.body);
-
-  List<dynamic> posts = data['data']['children'];
-
-  for (var post in posts) {
-    String title = post['data']['title'];
-    print(data);
-  }
-//API
 }
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
+    return ChangeNotifierProvider(
+      create: (context) => AppState(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -72,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('Assets/examplebackground.jpg'),
+                        image:
+                            AssetImage('assets/images/examplebackground.jpg'),
                         fit: BoxFit.cover)),
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height,
@@ -86,8 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: MediaQuery.of(context).size.height / 3,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image:
-                                  AssetImage('Assets/darkRumblrUpdate.png'))),
+                              image: AssetImage(
+                                  'assets/images/darkRumblrUpdate.png'))),
                     ),
                     Column(
                       children: <Widget>[
