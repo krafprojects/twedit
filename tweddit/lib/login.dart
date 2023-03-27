@@ -13,7 +13,7 @@ class Login extends StatelessWidget {
         //TODO: fix the appbar button exhibition - it has to be on top of the container below it
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color.fromARGB(255, 247, 4, 4),
+          backgroundColor: const Color.fromARGB(255, 247, 4, 4),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -75,11 +75,11 @@ class Login extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                       horizontal: 40,
                                       vertical: 15,
                                     ),
-                                    textStyle: TextStyle(fontSize: 18)),
+                                    textStyle: const TextStyle(fontSize: 18)),
                                 onPressed: () {
                                   Navigator.push(context, MainPage());
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -89,19 +89,22 @@ class Login extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: Text("Login"))),
+                                child: const Text("Login"))),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const <Widget>[
-                          Text("Don't have an account?",
+                        children: <Widget>[
+                          const Text("Don't have an account?",
                               style: TextStyle(color: Colors.white)),
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Signup",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18),
+                            ),
                             // Sign up funtion in the login page does not work and will need to be worked on.
                           )
                         ],

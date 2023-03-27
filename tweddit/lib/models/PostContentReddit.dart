@@ -19,7 +19,7 @@ class PostReddit {
   final String subreddit;
   final String author;
   final String thumbnail;
-  final int score;
+  final double created;
 
   // String get title => _title;
   // String get _subreddit => _subreddit;
@@ -32,7 +32,7 @@ class PostReddit {
       required this.subreddit,
       required this.author,
       required this.thumbnail,
-      required this.score});
+      required this.created});
 
   factory PostReddit.fromJson(Map<String, dynamic> json) {
     return PostReddit(
@@ -40,7 +40,7 @@ class PostReddit {
       subreddit: json['subreddit'],
       author: json['author'],
       thumbnail: json['thumbnail'],
-      score: json['score'],
+      created: json['created'],
     );
   }
 }

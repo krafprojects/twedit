@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
 import 'package:provider/provider.dart';
 import 'package:tweddit/app_state.dart';
 import 'package:tweddit/models/PostContentReddit.dart';
@@ -38,10 +40,14 @@ class HomeScreen extends StatelessWidget {
         itemCount: redditPosts.length,
         itemBuilder: (context, index) {
           PostReddit post = redditPosts[index];
+          DateTime timestamp =
+              DateTime.fromMillisecondsSinceEpoch(post.created.toInt() * 1000);
+          String formattedTime = timeago.format(timestamp, allowFromNow: true);
+
           return PostsCards(
               text: post.title,
-              created_at: post.subreddit,
-              author_id: post.author,
+              createdAt: formattedTime,
+              authorID: post.author,
               thumbnailUrl: post.thumbnail);
         },
       ),

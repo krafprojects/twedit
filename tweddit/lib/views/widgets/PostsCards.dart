@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class PostsCards extends StatelessWidget {
   final String text;
-  final String author_id;
-  final String created_at;
+  final String authorID;
+  final String createdAt;
   final String thumbnailUrl;
   PostsCards({
     required this.text,
-    required this.created_at,
-    required this.author_id,
+    required this.createdAt,
+    required this.authorID,
     required this.thumbnailUrl,
   });
   @override
@@ -33,7 +33,7 @@ class PostsCards extends StatelessWidget {
         ],
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
-            Color.fromARGB(255, 0, 0, 0).withOpacity(0.6),
+            Color.fromARGB(255, 0, 0, 0).withOpacity(0.7),
             BlendMode.multiply,
           ),
           image: thumbnailUrl.contains("http")
@@ -68,7 +68,7 @@ class PostsCards extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
+                    color: Colors.white.withOpacity(0.85),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -79,7 +79,7 @@ class PostsCards extends StatelessWidget {
                         size: 18,
                       ),
                       SizedBox(width: 7),
-                      Text(author_id),
+                      Text(authorID),
                     ],
                   ),
                 ),
@@ -87,7 +87,7 @@ class PostsCards extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
+                    color: Colors.white.withOpacity(0.85),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -98,7 +98,7 @@ class PostsCards extends StatelessWidget {
                         size: 18,
                       ),
                       SizedBox(width: 7),
-                      Text(created_at),
+                      Text(createdAt),
                     ],
                   ),
                 )
