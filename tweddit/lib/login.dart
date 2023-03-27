@@ -1,13 +1,31 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
+  //Initialuze Firebase App
+  Future<FirebaseApp> _initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    return firebaseApp;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        /*body: FutureBuilder(
+        future: _initializeFirebase(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done){
+            return Login();
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+            );
+        },
+      ),
+      */
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         //TODO: fix the appbar button exhibition - it has to be on top of the container below it
