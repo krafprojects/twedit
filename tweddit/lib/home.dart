@@ -55,5 +55,3 @@ class HomeScreen extends StatelessWidget {
 }
 
 // End of the first tweet test
-
-

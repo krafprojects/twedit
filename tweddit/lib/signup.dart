@@ -12,7 +12,7 @@ class SignupPage extends StatelessWidget {
         //TODO: fix the visualization - keyboard covering 'Confirm Password' field
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 247, 4, 4),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -20,15 +20,19 @@ class SignupPage extends StatelessWidget {
             icon: const Icon(
               Icons.arrow_back_ios,
               size: 20,
-              color: Colors.red,
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
           ),
         ),
         body: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/darkRumblrUpdate.png'),
-                    fit: BoxFit.none)),
+                    colorFilter: ColorFilter.mode(
+                      Color.fromRGBO(0, 0, 0, 0.45),
+                      BlendMode.multiply,
+                    ),
+                    image: AssetImage('assets/images/examplebackground.jpg'),
+                    fit: BoxFit.cover)),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Column(
