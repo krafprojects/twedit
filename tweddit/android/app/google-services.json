@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "497993655395",
+    "project_id": "twedit-a010a",
+    "storage_bucket": "twedit-a010a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497993655395:android:d5180d74c3d7b7884bc456",
+        "android_client_info": {
+          "package_name": "com.example.tweddit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497993655395-a2l1quo6ulvko2tm598n1ttei1e2rdbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgaHYLG55hBTQfrbhgNaCWJgId4v5YMeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497993655395-a2l1quo6ulvko2tm598n1ttei1e2rdbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
