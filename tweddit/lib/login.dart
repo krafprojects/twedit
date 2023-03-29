@@ -1,19 +1,37 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
+  //Initialuze Firebase App
+  Future<FirebaseApp> _initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    return firebaseApp;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        /*body: FutureBuilder(
+        future: _initializeFirebase(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done){
+            return Login();
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+            );
+        },
+      ),
+      */
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         //TODO: fix the appbar button exhibition - it has to be on top of the container below it
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color.fromARGB(255, 247, 4, 4),
+          backgroundColor: const Color.fromARGB(255, 247, 4, 4),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -75,11 +93,11 @@ class Login extends StatelessWidget {
                             ),
                             child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                       horizontal: 40,
                                       vertical: 15,
                                     ),
-                                    textStyle: TextStyle(fontSize: 18)),
+                                    textStyle: const TextStyle(fontSize: 18)),
                                 onPressed: () {
                                   Navigator.push(context, MainPage());
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -89,19 +107,22 @@ class Login extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: Text("Login"))),
+                                child: const Text("Login"))),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const <Widget>[
-                          Text("Don't have an account?",
+                        children: <Widget>[
+                          const Text("Don't have an account?",
                               style: TextStyle(color: Colors.white)),
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Signup",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18),
+                            ),
                             // Sign up funtion in the login page does not work and will need to be worked on.
                           )
                         ],

@@ -20,8 +20,8 @@ class HomePageState extends State<HomePage> {
       ),
       body: PostsCards(
         text: 'Content Section',
-        author_id: 'ZacMel',
-        created_at: '1/31/23',
+        authorID: 'ZacMel',
+        createdAt: '1/31/23',
         thumbnailUrl:
             'https://miro.medium.com/max/1200/1*njhuKpqziXtVFjykPV3yoQ.jpeg',
       ),
