@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
+import 'signup.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -39,7 +40,7 @@ class Login extends StatelessWidget {
             icon: const Icon(
               Icons.arrow_back_ios,
               size: 20,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: Colors.white,
             ),
           ),
         ),
@@ -115,7 +116,19 @@ class Login extends StatelessWidget {
                           const Text("Don't have an account?",
                               style: TextStyle(color: Colors.white)),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const SignupPage())));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Sign Up Button Pressed"),
+                                  duration: Duration(milliseconds: 300),
+                                ),
+                              );
+                            },
                             child: const Text(
                               "Signup",
                               style: TextStyle(
