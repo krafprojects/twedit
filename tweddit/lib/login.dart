@@ -92,23 +92,30 @@ class Login extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                             ),
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 40,
-                                      vertical: 15,
-                                    ),
-                                    textStyle: const TextStyle(fontSize: 18)),
-                                onPressed: () {
-                                  Navigator.push(context, MainPage());
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text("Login Button Pressed"),
-                                      duration: Duration(milliseconds: 300),
-                                    ),
-                                  );
-                                },
-                                child: const Text("Login"))),
+                            child: MaterialButton(
+                              key: const Key('loginBtn'),
+                              minWidth: 90,
+                              height: 90,
+                              onPressed: () {
+                                Navigator.push(context, MainPage());
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Login Button Pressed"),
+                                    duration: Duration(milliseconds: 300),
+                                  ),
+                                );
+                              },
+                              color: Colors.red,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: const Text("Login",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                      fontSize: 18)),
+                            )),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
