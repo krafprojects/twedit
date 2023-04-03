@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'login.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -12,7 +14,7 @@ class SignupPage extends StatelessWidget {
         //TODO: fix the visualization - keyboard covering 'Confirm Password' field
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 247, 4, 4),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -20,15 +22,19 @@ class SignupPage extends StatelessWidget {
             icon: const Icon(
               Icons.arrow_back_ios,
               size: 20,
-              color: Colors.red,
+              color: Colors.white,
             ),
           ),
         ),
         body: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/darkRumblrUpdate.png'),
-                    fit: BoxFit.none)),
+                    colorFilter: ColorFilter.mode(
+                      Color.fromRGBO(0, 0, 0, 0.45),
+                      BlendMode.multiply,
+                    ),
+                    image: AssetImage('assets/images/examplebackground.jpg'),
+                    fit: BoxFit.cover)),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: Column(
@@ -43,7 +49,9 @@ class SignupPage extends StatelessWidget {
                           Text(
                             "Sign up",
                             style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
+                                fontSize: 30,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
                             height: 20,
@@ -52,7 +60,8 @@ class SignupPage extends StatelessWidget {
                             "Create a new account",
                             style: TextStyle(
                                 fontSize: 15,
-                                color: Color.fromARGB(255, 247, 4, 4)),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -78,6 +87,7 @@ class SignupPage extends StatelessWidget {
                                 minWidth: 80,
                                 height: 80,
                                 onPressed: () {
+                                  Navigator.push(context, MainPage());
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
                                       content: Text("Login Button Pressed"),
@@ -90,20 +100,40 @@ class SignupPage extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                child: const Text("Sign up",
+                                child: const Text("SignUp",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
+                                        color: Colors.white,
                                         fontSize: 18)))),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const <Widget>[
-                          Text("Already have an account?"),
-                          Text(
-                            "Login",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18),
-                          )
+                        children: <Widget>[
+                          const Text(
+                            "Already have an account? ",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => const Login())));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Login Button Pressed"),
+                                  duration: Duration(milliseconds: 300),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18),
+                            ),
+                          ),
                         ],
                       )
                     ],
@@ -120,8 +150,8 @@ class SignupPage extends StatelessWidget {
         Text(label,
             style: const TextStyle(
               fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Colors.red,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             )),
         const SizedBox(
           height: 5,
