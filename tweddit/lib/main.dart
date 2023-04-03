@@ -73,12 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                fixedSize: Size(200, 60),
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 40,
-                                  vertical: 15,
-                                ),
-                                textStyle: TextStyle(fontSize: 18)),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              fixedSize: Size(200, 60),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 15,
+                              ),
+                              textStyle: TextStyle(fontSize: 18),
+                            ),
                             onPressed: () {
                               Navigator.push(
                                   context,
@@ -102,9 +106,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             child: OutlinedButton(
                                 style: ElevatedButton.styleFrom(
-                                    fixedSize: Size(200, 60),
                                     side: BorderSide(color: Colors.white),
                                     foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    fixedSize: Size(200, 60),
                                     padding: EdgeInsets.symmetric(
                                       horizontal: 40,
                                       vertical: 15,
