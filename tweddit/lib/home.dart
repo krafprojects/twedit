@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:provider/provider.dart';
 import 'package:tweddit/app_state.dart';
+import 'package:tweddit/feed_page.dart';
 import 'package:tweddit/models/PostContentReddit.dart';
 import 'package:tweddit/views/widgets/PostsCards.dart';
 
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
+
     appState.getRedditData();
     var redditPosts = appState.getRedditPosts;
 
@@ -43,16 +45,28 @@ class HomeScreen extends StatelessWidget {
               DateTime.fromMillisecondsSinceEpoch(post.created.toInt() * 1000);
           String formattedTime = timeago.format(timestamp, allowFromNow: true);
 
-          return PostsCards(
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) =>
+                          FeedPage()))); // Handle the tap event here
+            },
+            child: PostsCards(
               text: post.title,
               createdAt: formattedTime,
               authorID: post.author,
-              thumbnailUrl: post.thumbnail);
+              thumbnailUrl: post.thumbnail,
+            ),
+          );
         },
       ),
     );
   }
 }
+
+
 
 // End of the first tweet test
 
